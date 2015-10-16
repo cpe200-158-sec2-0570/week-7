@@ -11,15 +11,20 @@ namespace twozerofoureight
         protected int boardSize; // default is 4
         protected int[,] board;
         protected Random rand;
+        public int ss;
 
         public TwoZeroFourEightModel() : this(4)
         {
-            // default board size is 4 
+             
         }
 
         public int[,] GetBoard()
         {
             return board;
+        }
+        public int GetScore()
+        {
+            return ss;
         }
 
         public TwoZeroFourEightModel(int size)
@@ -43,12 +48,14 @@ namespace twozerofoureight
             {
                 int x = rand.Next(boardSize);
                 int y = rand.Next(boardSize);
+              
                 if (board[x, y] == 0)
                 {
                     board[x, y] = 2;
                     break;
                 }
             }
+            ss = ss + 2;
             return input;
         }
 
